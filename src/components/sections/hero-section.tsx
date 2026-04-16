@@ -46,7 +46,8 @@ export const BenefitsSection = () => {
         </div>
         <AnimateOnScroll delay={240} className="mt-10 text-center">
           <p className="text-lg md:text-xl max-w-[65ch] mx-auto text-muted-foreground leading-relaxed font-medium">
-            No se trata sólo de entrenar más — se trata de entrenar mejor, con coherencia, con resultados fiables.
+            No se trata sólo de entrenar más — se trata de entrenar mejor, con
+            coherencia, con resultados fiables.
           </p>
         </AnimateOnScroll>
       </div>
@@ -55,19 +56,16 @@ export const BenefitsSection = () => {
 };
 
 const HeroSection = () => {
+  const bgColor = "hsl(150 40% 7%)";
+
   return (
     <>
-      {/*
-        Hero: split layout
-        - Desktop: text on left · hero image fills right half
-        - Mobile: full-width with image as dark background behind text
-        All copy is unchanged; only layout, spacing, and visual treatment updated.
-      */}
       <section
         id="home"
-        className="relative overflow-hidden bg-[hsl(var(--surface-inverse))] text-white"
+        style={{ backgroundColor: bgColor }}
+        className="relative overflow-hidden text-white"
       >
-        {/* Brand gradient accent (decorative) */}
+        {/* Brand gradient accent */}
         <div
           className="absolute inset-0 bg-gradient-to-br from-primary/30 via-primary/5 to-transparent pointer-events-none"
           aria-hidden="true"
@@ -84,36 +82,49 @@ const HeroSection = () => {
           />
         </div>
 
-        {/* Desktop: image panel — right half, absolute so it fills full section height */}
-        <div
-          className="absolute top-0 right-0 bottom-0 w-1/2 hidden lg:block"
-          aria-hidden="true"
-        >
-          <Image
-            src="/images/hero.jpg"
-            alt=""
-            fill
-            className="object-cover object-center"
-            priority
-          />
-          {/* Left-edge blend: multi-stop smooth fade into dark background */}
+        {/* Desktop Image Layer: NOW 100% WIDTH */}
+        <div className="absolute inset-0 hidden lg:block" aria-hidden="true">
+          {/* The image itself is wrapped in a 50% width container pinned to the right */}
+          <div className="absolute top-0 right-0 bottom-0 w-1/2">
+            <Image
+              src="/images/hero.jpg"
+              alt=""
+              fill
+              className="object-cover object-center"
+              priority
+            />
+          </div>
+
+          {/* THE FIX: The gradient now sits on the 100% width container. 
+            It starts solid on the left and fades out as it moves right, 
+            covering the 'seam' perfectly.
+          */}
           <div
             className="absolute inset-0"
             style={{
-              background:
-                'linear-gradient(to right, hsl(var(--surface-inverse)) 0%, hsl(var(--surface-inverse) / 0.96) 15%, hsl(var(--surface-inverse) / 0.82) 30%, hsl(var(--surface-inverse) / 0.55) 50%, hsl(var(--surface-inverse) / 0.20) 70%, transparent 85%)',
+              background: `linear-gradient(to right, 
+                ${bgColor} 0%, 
+                ${bgColor} 45%, 
+                ${bgColor} 50%, 
+                hsl(150 40% 7% / 0.6) 65%, 
+                transparent 85%
+              )`,
             }}
           />
-          {/* Bottom-edge blend: softens transition toward BenefitsSection */}
-          <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[hsl(var(--surface-inverse))] to-transparent" />
+
+          {/* Bottom mask to smooth transition to cards */}
+          <div
+            className="absolute bottom-0 left-0 right-0 h-64"
+            style={{
+              background: `linear-gradient(to top, ${bgColor} 0%, transparent 100%)`,
+            }}
+          />
         </div>
 
-        {/* Content — sits above all background layers */}
+        {/* Content */}
         <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-start min-h-[90vh] pb-36">
-            {/* Text column: full width on mobile, left half on desktop */}
             <div className="w-full lg:w-1/2 flex flex-col justify-start pt-24 lg:pt-28 lg:pr-12">
-
               <AnimateOnScroll>
                 <p className="text-xs font-bold uppercase tracking-[0.20em] text-accent mb-6">
                   Entrenador Personal · Dietista · Asesor de Hábitos
@@ -129,18 +140,19 @@ const HeroSection = () => {
 
               <AnimateOnScroll delay={160}>
                 <p className="text-lg md:text-xl text-white/70 leading-relaxed mb-10 max-w-[50ch]">
-                  Deja de improvisar. Transforma tu cuerpo y mente con hábitos sólidos
-                  y sencillos.
+                  Deja de improvisar. Transforma tu cuerpo y mente con hábitos
+                  sólidos y sencillos.
                 </p>
                 <Button
                   size="lg"
                   asChild
                   className="w-full sm:w-fit bg-accent hover:bg-accent/90 text-accent-foreground shadow-xl text-base px-8 py-6 transition-all duration-[250ms] hover:shadow-2xl hover:-translate-y-0.5"
                 >
-                  <a href="#contact">Agenda tu Sesión de Diagnóstico GRATUITA</a>
+                  <a href="#contact">
+                    Agenda tu Sesión de Diagnóstico GRATUITA
+                  </a>
                 </Button>
               </AnimateOnScroll>
-
             </div>
           </div>
         </div>
