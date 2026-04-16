@@ -58,21 +58,14 @@ export const metadata: Metadata = {
     title: 'entrenaconDiego — Entrenador Personal en Madrid y Vallecas',
     description:
       'Entrenador personal certificado en Madrid y Vallecas. Programas 100% personalizados de entrenamiento, nutrición y hábitos. Método 4R probado. Sesión diagnóstico GRATUITA.',
-    images: [
-      {
-        url: '/images/avatar.jpg',
-        width: 600,
-        height: 800,
-        alt: 'Diego Jiménez — Entrenador Personal en Madrid y Vallecas',
-      },
-    ],
+    // opengraph-image.tsx generates the OG image automatically (1200×630)
   },
   twitter: {
     card: 'summary_large_image',
     title: 'entrenaconDiego — Entrenador Personal en Madrid y Vallecas',
     description:
       'Entrenador personal certificado en Madrid y Vallecas. Programas personalizados de entrenamiento, nutrición y hábitos.',
-    images: ['/images/avatar.jpg'],
+    // opengraph-image.tsx image is reused for Twitter cards automatically
   },
   robots: {
     index: true,
