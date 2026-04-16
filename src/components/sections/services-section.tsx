@@ -116,7 +116,7 @@ const ServicesSection = () => {
             size="lg"
             variant="outline"
             asChild
-            className="border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-[250ms]"
+            className="w-full sm:w-auto border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-[250ms]"
           >
             <a href="#planes-y-tarifas">Ver Planes y Tarifas</a>
           </Button>

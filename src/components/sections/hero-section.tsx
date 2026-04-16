@@ -96,17 +96,23 @@ const HeroSection = () => {
             className="object-cover object-center"
             priority
           />
-          {/* Left-edge blend: image fades into the dark background */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[hsl(var(--surface-inverse))] to-transparent" />
+          {/* Left-edge blend: multi-stop smooth fade into dark background */}
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                'linear-gradient(to right, hsl(var(--surface-inverse)) 0%, hsl(var(--surface-inverse) / 0.96) 15%, hsl(var(--surface-inverse) / 0.82) 30%, hsl(var(--surface-inverse) / 0.55) 50%, hsl(var(--surface-inverse) / 0.20) 70%, transparent 85%)',
+            }}
+          />
           {/* Bottom-edge blend: softens transition toward BenefitsSection */}
           <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[hsl(var(--surface-inverse))] to-transparent" />
         </div>
 
         {/* Content — sits above all background layers */}
         <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center min-h-[90vh] pb-28">
+          <div className="flex items-start min-h-[90vh] pb-36">
             {/* Text column: full width on mobile, left half on desktop */}
-            <div className="w-full lg:w-1/2 flex flex-col justify-center pt-28 lg:pt-32 lg:pr-12">
+            <div className="w-full lg:w-1/2 flex flex-col justify-start pt-24 lg:pt-28 lg:pr-12">
 
               <AnimateOnScroll>
                 <p className="text-xs font-bold uppercase tracking-[0.20em] text-accent mb-6">
@@ -115,7 +121,7 @@ const HeroSection = () => {
               </AnimateOnScroll>
 
               <AnimateOnScroll delay={80}>
-                <h1 className="font-headline text-5xl md:text-6xl lg:text-7xl font-extrabold leading-[1.0] tracking-[-0.03em] uppercase mb-8">
+                <h1 className="font-headline text-[1.25rem] sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-[1.1] tracking-[-0.02em] uppercase mb-8">
                   La <span className="text-accent">PRECISIÓN</span> de la{" "}
                   ingeniería aplicada a tu entrenamiento
                 </h1>
@@ -129,7 +135,7 @@ const HeroSection = () => {
                 <Button
                   size="lg"
                   asChild
-                  className="w-fit bg-accent hover:bg-accent/90 text-accent-foreground shadow-xl text-base px-8 py-6 transition-all duration-[250ms] hover:shadow-2xl hover:-translate-y-0.5"
+                  className="w-full sm:w-fit bg-accent hover:bg-accent/90 text-accent-foreground shadow-xl text-base px-8 py-6 transition-all duration-[250ms] hover:shadow-2xl hover:-translate-y-0.5"
                 >
                   <a href="#contact">Agenda tu Sesión de Diagnóstico GRATUITA</a>
                 </Button>

@@ -67,7 +67,7 @@ const AboutSection = () => {
               <Button
                 size="lg"
                 asChild
-                className="bg-accent hover:bg-accent/90 text-accent-foreground shadow-md transition-all duration-[250ms] hover:shadow-lg hover:-translate-y-0.5"
+                className="w-full sm:w-auto bg-accent hover:bg-accent/90 text-accent-foreground shadow-md transition-all duration-[250ms] hover:shadow-lg hover:-translate-y-0.5"
               >
                 <a href="#contact">
                   ¿Listo para empezar? Descubre cómo podemos trabajar juntos

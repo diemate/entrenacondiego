@@ -31,7 +31,7 @@ const Header = () => {
           <div className="flex items-center justify-center bg-primary rounded-lg p-1.5 transition-transform duration-[150ms] group-hover:scale-105">
             <Mountain className="h-5 w-5 text-primary-foreground" />
           </div>
-          <span className="hidden sm:inline-block text-lg tracking-tight">
+          <span className="inline-block text-lg tracking-tight">
             entrenaconDiego
           </span>
         </Link>
