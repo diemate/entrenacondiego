@@ -37,7 +37,6 @@ const localBusiness = {
     { '@type': 'City', name: 'Vallecas' },
     { '@type': 'Country', name: 'España' },
   ],
-  servesCuisine: undefined,
   sameAs: [instagramUrl],
   priceRange: '€€',
 };
