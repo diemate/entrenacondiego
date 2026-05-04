@@ -9,6 +9,7 @@ export const contentType = 'image/jpeg';
 export default async function Image() {
   const heroData = await readFile(path.join(process.cwd(), 'public/images/hero.jpg'));
   const heroSrc = `data:image/jpeg;base64,${heroData.toString('base64')}`;
+  const syneData = await readFile(path.join(process.cwd(), 'public/fonts/Syne-ExtraBold.woff'));
 
   return new ImageResponse(
     (
@@ -18,7 +19,7 @@ export default async function Image() {
           height: '100%',
           display: 'flex',
           position: 'relative',
-          fontFamily: 'ui-sans-serif, system-ui, sans-serif',
+          fontFamily: 'Syne',
         }}
       >
         {/* Hero photo — full bleed background */}
@@ -164,6 +165,9 @@ export default async function Image() {
         </div>
       </div>
     ),
-    { ...size },
+    {
+      ...size,
+      fonts: [{ name: 'Syne', data: syneData, weight: 800, style: 'normal' }],
+    },
   );
 }
